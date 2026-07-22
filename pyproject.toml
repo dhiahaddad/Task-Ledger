@@ -1,0 +1,89 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "task-ledger"
+version = "0.1.0"
+description = "A cross-platform task manager and Python reference architecture."
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+authors = [{ name = "Dhia Haddad" }]
+keywords = ["architecture", "cli", "desktop", "tasks", "tui"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: MacOS",
+  "Operating System :: Microsoft :: Windows",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+cli = ["typer>=0.16,<1"]
+desktop = ["pyside6>=6.8,<7"]
+tui = ["textual>=3,<8"]
+interfaces = [
+  "typer>=0.16,<1",
+  "pyside6>=6.8,<7",
+  "textual>=3,<8",
+]
+
+[project.scripts]
+task-ledger = "task_ledger.interfaces.cli.app:main"
+task-ledger-desktop = "task_ledger.interfaces.desktop.app:main"
+task-ledger-tui = "task_ledger.interfaces.tui.app:main"
+
+[dependency-groups]
+dev = [
+  "mypy>=1.15,<2",
+  "pre-commit>=4.2,<5",
+  "pyright>=1.1.400,<2",
+  "pytest>=8.3,<9",
+  "pytest-cov>=6,<8",
+  "ruff>=0.11,<1",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/task_ledger"]
+
+[tool.pytest.ini_options]
+addopts = "--strict-config --strict-markers --cov=task_ledger --cov-report=term-missing"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["task_ledger"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["A", "B", "C4", "E", "F", "I", "N", "PTH", "RUF", "SIM", "UP"]
+ignore = ["B008"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["src/task_ledger/domain", "src/task_ledger/application", "src/task_ledger/infrastructure"]
+
+[tool.pyright]
+pythonVersion = "3.12"
+typeCheckingMode = "standard"
+venvPath = "."
+venv = ".venv"
+include = ["src", "tests"]

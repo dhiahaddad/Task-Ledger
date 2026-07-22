@@ -1,0 +1,19 @@
+{
+  "name": "Task Ledger",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
+  "features": {
+    "ghcr.io/devcontainers-extra/features/uv:1": {}
+  },
+  "postCreateCommand": "uv sync --all-extras --dev",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "charliermarsh.ruff",
+        "ms-python.python",
+        "ms-pyright.pyright"
+      ]
+    }
+  },
+  "remoteUser": "vscode"
+}
+

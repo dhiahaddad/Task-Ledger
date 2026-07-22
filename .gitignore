@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.coverage
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.smoke/
+.uv-cache/
+.venv/
+build/
+dist/
+htmlcov/
+
+# Packaging
+*.app/
+*.bin
+*.dmg
+*.exe
+pysidedeploy.spec
+
+# Editors and operating systems
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*.log
+
+# Local data and secrets
+.env
+*.local.json
+tasks.json
