@@ -1,5 +1,13 @@
 # Task Ledger
 
+[![Quality](https://github.com/dhiahaddad/Task-Ledger/actions/workflows/quality.yml/badge.svg)](https://github.com/dhiahaddad/Task-Ledger/actions/workflows/quality.yml)
+[![Python 3.12+](https://img.shields.io/badge/Python-3.12%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Windows, macOS, Linux](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-555555)](#requirements)
+[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Ruff](https://img.shields.io/badge/code%20style-Ruff-D7FF64?logo=ruff&logoColor=261230)](https://docs.astral.sh/ruff/)
+[![mypy and Pyright](https://img.shields.io/badge/types-mypy%20%2B%20Pyright-blue)](#development)
+[![uv](https://img.shields.io/badge/package%20manager-uv-DE5FE9)](https://docs.astral.sh/uv/)
+
 Task Ledger is a small cross-platform task manager and a practical Python reference
 architecture. One framework-independent application core is delivered through a Typer
 command-line interface, a PySide6 desktop application, and a Textual terminal UI.
@@ -184,4 +192,3 @@ Contributions are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md), follow
 ## License
 
 Copyright (c) 2026 Dhia Haddad. Released under the [MIT License](LICENSE).
-
